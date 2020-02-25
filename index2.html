@@ -1,0 +1,61 @@
+一.请简述Vue的双向数据绑定原理是什么？
+
+    Vue双向数据绑定是通过数据劫持结合发布订阅模式的方式来实现的,也就是说数据和视图同步,数据发生变化,视图跟着变化,视图变化,数据也随之发生改变.
+    核心:Object.defineProperty()方法,
+    Object.defineProperty(obj, prop, descriptor) ，这个语法内有三个参数，分别为 obj （要定义其上属性的对象） prop （要定义或修改的属性名字） descriptor （具体的改变方法）
+    var obj = {};//定义一个空对象
+    var val = 'zhao';//赋予初始值
+    Object.defineProperty(obj,'val',{
+        get: function(){
+            return val;
+        },
+        set: function(newVal){
+            val = newVal;//定义val等于修改后的内容
+            document.getElementById('a').value = val;//让文本框的内容等于val
+            document.getElementById('b').innerHTML = val;//让span的内容等于val
+        }
+    });
+    document.addEventListener('keyup',function(e){
+        obj.val = e.target.value;
+    })
+
+二.闭包的3特性？
+
+    1.局部变量：在函数中定义有共享意义的局部变量（定义成全局变量会造成全局污染)；
+    2.内嵌函数：在函数中申明有内嵌函数，内嵌函数对函数中的局部变量进行访问；
+    3.外部使用：函数向外返回此内嵌函数，外部可通过此内嵌函数持有并访问申明在函数中的局部变量，而此变量在外部是通过其他路径无法访问的；
+
+三.var numbers=[1,2,3,4]将numbers转换成“-”连接起来的字符串？
+
+        numbers.join('-')
+        
+        var numbers=[1,2,3,4];
+	    var numbers2=numbers.join('-');
+	    console.log(numbers2)
+
+四.请详细说下你对vue生命周期的理解？
+
+    beforeCreate(创建前),created(创建后)?初始化 data拿到了props  然后初始化了自己的data/menthods/computed/自定义指令  this.  ...
+    beforeMount(载入前),mounted(载入后)，beforeUpdate(更新前)，updated(更新后)，beforeDestroy(销毁前)，destroyed(销毁后)
+    组件缓存特殊 ：actived   deActived =>需用keepAlive
+
+五.请说下vue组件间的传值？
+
+    父传子：子组件通过props方法接收数据；
+    子传父：$emit方法传递参数
+    非父子组件间的数据传递，兄弟组件传值
+    eventBus创建一个事件中心，传递事件和接收事件，使用vuex；
+    keep-alive是用来包裹动态组件的（保留组件状态或者避免重新渲染）
+    子组件调用父组件的方法：
+	1.在子组件中通过this.$parent.event来调用父组件的方法；
+    2.在子组件里用$emit向父组件触发一个事件，父组件监听这个事件。
+    
+六.浏览器本地存储有哪几种，区别是什么？
+
+    1.cookie
+    2.localStorage
+    3.sessionStorage
+    区别：
+    1.cookie:一般由服务器生成,可设置失效时间.如果在浏览器端生成cookie,默认是关闭浏览器后失效,4k左右,需要开发者自己封装,
+	2.localstorage(本地存储)除非被清除,否则永久保存,一般为5m,提供原生api
+	3.sessionStorage(会话存储)仅在当前会话下有效,关闭页面或浏览器后清除,一般为5m,提供原生api

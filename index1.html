@@ -1,0 +1,80 @@
+一.es6 有那些新特征？
+
+    efault Parameters（默认参数） in ES6
+    Template Literals （模板文本）in ES6
+    Multi-line Strings （多行字符串）in ES6
+    Destructuring Assignment （解构赋值）in ES6
+    Enhanced Object Literals （增强的对象文本）in ES6
+    Arrow Functions （箭头函数）in ES6
+    Promises in ES6
+    Block-Scoped Constructs Let and Const（块作用域构造Let and 	Const）
+    Classes（类） in ES6
+    Modules（模块） in ES6
+
+二.清除浮动的几种方法？
+
+    1.给父级也加浮动
+    2.给父级加display:inline-block
+    3.在浮动元素下加<div class="clear"></div>
+    .clear{ height:0px;font-size:0;clear:both;}
+    4.在浮动元素下加<br clear="all"/>
+    5. 给浮动元素的父级加{zoom:1;}
+    :after{content:""; display:block;clear:both;}
+
+三.css3 有那些新特征？
+
+    1.CSS3实现圆角（border-radius），阴影（box-shadow）
+    2.对文字加特效（text-shadow）线性渐变（gradient）旋转（transform）
+    3. transform:rotate(9deg) scale(0.85,0.90) translate(0px,-30px) skew(-9deg,0deg);// 旋转,缩放,定位,倾斜
+    4.增加了更多的CSS选择器 多背景 rgba
+    5.在CSS3中唯一引入的伪元素是 ::selection.
+    6.媒体查询，多栏布局
+    7.border-image
+
+四.vue-router 有哪几种导航钩子？
+
+    （三种）用途：拦截导航，完成跳转或者取消。
+    1.全局导航钩子：前置守卫(to,from,next)和后置钩子(to,from)——>next是导                          航自身
+    2.组件内的钩子：beforeRouteEnter(在渲染该组件的对应路由被 confirm 前调用，不可获取组件实例this)
+    beforeRouteUpdate(在当前路由改变，但是依然渲染该组件是调用)
+    beforeRouteLeave(导航离开该组件的对应路由时被调用)
+    3.单独路由独享组件:(to,from,next)
+
+五.Javascript 字符串操作函数有那些？
+ 
+      1、字符串转换
+         var num=24;
+         var mystr=num.toString();    //"24"
+      2、字符串分割
+         var mystr="qingchenghuwoguoxiansheng,woaishenghuo,woaiziji";
+         var arr1=mystr.split(","); 
+      3、字符串连接
+         var mystr1="Hello";
+         var mystr2=" world,";
+         var mystr3="Hello";
+         var mystr4="guoxiansheng";
+         var newStr=mystr1.concat(mystr2+mystr3+" "+mystr4); 
+      4、获取字符串长度
+      5、查询子字符串
+      6、返回指定位置的字符或其字符编码值
+      7、 字符串匹配
+      8、字符串替换
+      9、字符串切割和提取
+      10、字符串大小写转换
+      11、字符串去空格
+      
+六.什么是跨域,如何实现跨域访问?(至少写出3种)
+
+      指的是浏览器不能执行其他网站的脚本.它是由浏览器的同源策略造成的,是浏览器对js施加的安全限制
+      1.设置document.domain
+      2.跨文档通信API:window.postMessage()
+      3.JSONP
+      <script src="http://test.com/data.php?callback=dosomething"></script>
+      // 向服务器test.com发出请求，该请求的查询字符串有一个callback参数，用来指定回调函数的名字
+      // 处理服务器返回回调函数的数据
+      <script type="text/javascript">
+         function dosomething(res){
+            // 处理获得的数据
+            console.log(res.data)
+         }
+      </script>
