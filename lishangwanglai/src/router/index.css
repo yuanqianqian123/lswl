@@ -1,0 +1,18 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+ul,ol{
+    list-style: none;
+}
+#box{
+    background-image: url('http://www.axshare.cn/gsc/9B0J2A/6b/b2/f3/6bb2f30d8aa742729e588769883d60fd/images/首页/u1.png?token=0e68c3537f2357ed6fd9174064a97b4e3fbcaf9466828a7296e540b5180de9d9');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height:3000px;
+    padding:360px 106px 361px 114px;
+    box-sizing: border-box;
+    overflow: auto;
+    position: relative;
+}
